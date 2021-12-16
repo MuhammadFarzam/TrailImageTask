@@ -61,8 +61,10 @@ class MultipleImageUploadCOntroller extends Controller
                 }
             }
         }
-        Invoice::insert($dataForInsert);
-        
+
+        if(!empty($dataForInsert)){
+            Invoice::insert($dataForInsert);
+        }
         return response()->json($responseReturn);
 
     }
@@ -85,6 +87,7 @@ class MultipleImageUploadCOntroller extends Controller
     public function setFieldsForSpecificInvoice($data){
 
         $invoice = [];
+        //Condition to Handle Blur Invoice
         if(empty($data)){
             return ['status' => false,'message'=>'Failed Image Detection! Please upload once again','invoice' => $invoice];
         }
@@ -108,7 +111,6 @@ class MultipleImageUploadCOntroller extends Controller
             }
         }else{
             //For General Invoice
-
             $invoice['user_name'] = substr($data, strpos($data, 'Customer')+8,10);
             $invoice['invoice_no'] = $this->getStringBetween($data,'InvoiceNo.:','InvoiceDate') ? $this->getStringBetween($data,'InvoiceNo.:','InvoiceDate') : '';
 
@@ -120,6 +122,8 @@ class MultipleImageUploadCOntroller extends Controller
             $invoice['total_ammount'] = substr($data, strpos($data, 'Total')+5);
 
         }
+
+        //Condition to Unsupported Invoices
         if($invoice['invoice_no'] == '' || $invoice['user_name'] == ''){
             return ['status' => false,'message' => 'Invoice not Supported','invoice' => $invoice];
         }

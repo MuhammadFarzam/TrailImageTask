@@ -15,13 +15,17 @@
             font-size: 12px;
         }
         .success{
+            padding-left: 10px;
             font-size: 13px;
+            font-weight: 700;
             color: white;
             background-color: green;
             border: 1px solid;
         }
         .error{
-            font-size: 13px;
+            padding-left: 10px;
+            font-size: 14px;
+            font-weight: 700;
             color: white;
             background-color: red;
             border: 1px solid;
@@ -97,7 +101,6 @@
             <div class="container">
                 <div style="width:780px; margin:auto;border:1px solid #dadada">
                     <div id="append_div">
-                        
                     </div>
                 </div>
             </div>
