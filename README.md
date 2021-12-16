@@ -1,22 +1,22 @@
-<!-- Install Ocr Package on your System through this command-->
+## Install Ocr Package on your System through this command
 
 sudo apt install tesseract-ocr -y
 
-<!-- Install Dependencies of Project which install Ocr dependencies , mongo db and others-->
+## Install Dependencies of Project which install Ocr dependencies , mongo db and others
 
 Composer install
 
-<!-- Generate env File from env Example  and generate key -->
+## Generate env File from env Example  and generate key
 
 cp .env.example .env
 php artisan key:generate
 
-<!-- Project Dependencies -->
+## Project Dependencies
 
 Install mondo server on your local system
 Php version >= 7.4
 
-<!-- Project Breakdown -->
+## Project Breakdown
 
 Limit to scan two types of Invoices 
     Daraz
